@@ -1,26 +1,20 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 
 typedef struct {
+    char Lap_model_name[8];
+    char ram[6];
+    size_t price;
+}laptop;
 
-    char model[25];
-    int year;
-    int price;
-}Car;
+int main(void) {
+    laptop Laptop[] = {{"LENOVO","8GB",300},{"HP","16GB",700},{"NOTPAD","20GB",900},{"MacBook","28GB",1200}};
 
+    size_t number = sizeof(Laptop) / sizeof(Laptop[0]);
 
-int main(){
-
-    Car cars[] = {{"BMW", 2001, 10000},
-                  {"Toyoto", 2004, 20000},
-                  {"SUV", 2007, 30000}};
-    
-
-    int number = sizeof(cars) / sizeof(cars[0]);
-
-    for( int i = 0; i < number; i++){
-        printf("%s %d $%d\n", cars[i].model, cars[i].year , cars[i].price);
+    for (size_t i = 0; i < number; i++) {
+        printf("%s %s $%zu\n", Laptop[i].Lap_model_name, Laptop[i].ram, Laptop[i].price); // %zu is used for size_t  | %zd is used whne ssize_t 
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
