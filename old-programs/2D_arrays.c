@@ -1,29 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+int main(void) {
+    // 4 rows, 3 columns
+    char numpads[4][3] = {{'1','2','3'},{'4','5','6'},{'7','8','9'},{'*','0','#'}};
 
-// This program is used to showcase the 2D ARRAY
-// array of arrays
+    size_t rows = sizeof(numpads) / sizeof(numpads[0]);
+    size_t cols = sizeof(numpads[0]) / sizeof(numpads[0][0]);
 
-int main(){
-
-    /*int numbers[][3] = {{1, 2, 3},
-                        {4, 5, 6},
-                        {7, 8, 9}};
-                       
-    //printf("%d \n", numbers[0][0]);*/
-
-    char numpad[][3] = {{'1','2','3'},
-                        {'4','5','6'},
-                        {'7','8','9'},
-                        {'*','0','#'}};
-
-    for (int i = 0; i < 4; i++){ //rows
-        for (int a = 0; a < 3; a++){//columns
-            printf("%c  ", numpad[i][a]);
+    for (int x = 0; x < rows; x++) {
+        for (int y = 0; y < cols; y++) {
+            printf("%c  ", numpads[x][y]);
         }
         printf("\n");
     }
 
-
-    return 0;
+    return EXIT_SUCCESS;
 }
