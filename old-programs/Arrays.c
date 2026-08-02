@@ -1,28 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+void calling_func(void) {
+    int numbers[] = {10, 20, 30, 40, 50};
+    char grades[] = {'A', 'B', 'C', 'D', 'E'};
+    char names[] = "x86owl";
+    
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+    
+    for (char i = 0; i < 4; i++) {
+        fprintf(stdout, "%c ", grades[i]);
+    }
+    printf("\n");
+    
+    for (int j = 0; j < size; j++) {
+        fprintf(stdout, "%d ", numbers[j]);
+    }
+    printf("\n");
+    
+    for (char k = 0; k < sizeof(names) - 1; k++) {
+        fprintf(stdout, "%c", names[k]);
+    }
+    printf("\n");
+    
+}
 
 // array = fixed-size of elements of same data type
 // size of the bytes 24 ======> printf("%d", sizeof(numbers));
 
-int main(){
-
-    int numbers[] = {10, 20, 30, 40, 50, 60};
-    char grades[] = {'A', 'B', 'C', 'D', 'F'};
-    char name[] = "manikandan";
-
-    //numbers[0] = 100;
-    //printf("%ld\n", sizeof(numbers[0]));
-    int size = sizeof(numbers) / sizeof(numbers[0]);
-
-    for (char i = 0; i < 5; i++){
-       printf("%c\n", grades[i]);
-    }
-
-    for (int a = 0; a <  size; a++){
-        printf("%d\n", numbers[a]);
-    }
-
-    for (char b=0; b < sizeof(name)-1; b++){
-        printf("%c\n", name[b]);
-    }
-    return 0;
+int main(int argc, char *argv[]) {
+    calling_func();
+    
+    return EXIT_SUCCESS;
 }
