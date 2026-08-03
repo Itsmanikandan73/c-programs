@@ -1,23 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-// Arrays & User Input 
-// Garbage values | 
+// Arrays & User Input | Garbage values  
 
-int main(){
-    
-    int scores[6] = {};
-    
-    
-    for (int i = 0; i < 6; i++){
-        printf("Enter your score: ");
-        scanf("%d20s", &scores[i]);
+int main(void) {
+    int scores[5] = {0};
+
+
+
+    for (int i = 0; i < 6; i++) {
+        fprintf(stdout,"Please enter your scores[%d]\n", i);
+        fscanf(stdin, "%10d", &scores[i]);
     }
-    
-    
-    for(int a = 0; a < 6; a++){
-        printf("%d\n", scores[a]);
+    printf("\n");
+    puts("The score is entered in this sequences");
+    for (int i = 0; i < 6; i++) {
+        fprintf(stdout, "%d\n", scores[i]);
     }
-    
-    
-    return 0;
+
+    return EXIT_SUCCESS;
 }
