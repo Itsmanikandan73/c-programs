@@ -1,10 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
+int main(void) {
+	fprintf(stdout, "Hello buddy!\n");
 
-{
-
-	printf("hello ,world!\n");
-
-	return 0
+	return EXIT_SUCCESS;
 }
