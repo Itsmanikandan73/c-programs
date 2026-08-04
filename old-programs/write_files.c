@@ -1,24 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+int main(int argc, char **agrv) {
 
-int main(){
+    FILE *ptr_file = fopen("/home/x86owl/c-programs/old-programs/output.txt", "wb");   
 
-    // WRITE A FILE
+    char text[] = "I am an hacker also gretest programmer in the world!, i will work hard to become greatest of all time.";
 
-    FILE *pFile = fopen("/home/lenovo/Desktop/output.txt" ,"w"); // absoulte filepath
-
-    char text[] = "I am a hacker i will become an penetration tester\nEveryday i am working hard towards my goal\n"; // relational file path 
-
-    if (pFile == NULL){
-        printf("Error opening file\n");
+    if (ptr_file == NULL) {
+        fprintf(stderr, "Error: opening the file\n");
         return 1;
     }
 
-    fprintf(pFile, "%s", text);
+    fprintf(ptr_file, "%s", text);
+    puts("File was written successfully.");
 
-    printf("file was written successfully\n");
-
-    fclose(pFile);
-
-    return 0;
+    fclose(ptr_file);
+    ptr_file = NULL;
+    
+    return EXIT_SUCCESS;
 }
