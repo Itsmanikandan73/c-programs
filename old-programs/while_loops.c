@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 // This program is used to showcase the while loops program
 // while do something as long as the condition is true | condition must be true in order to run program.
-/*
-do{
-        printf("Enter a number greater than 0:");
-        scanf("%d", &number);
-    }while(number <= 0);
-*/
 
-int name(){
+int do_while_loop(int *number) {
+    do {
+        puts("Enter a number greater than zero: ");
+        fscanf(stdin,"%d3s", &number);
+        fprintf(stdout,"You enter the number %d\n", number);
+    } while(number <= 0);
+
+
+}
+
+void print_name(){
 
     char name[20] = "";
 
@@ -25,26 +30,34 @@ int name(){
         name[strlen(name) - 1] = '\0';
     }
 
-    printf("Hello %s\n", name);
+    fprintf(stdout, "Hello %s\n", name);
 
 }
 
-int main(){
-
+void game() {
+    int number = 0;
     bool isRunnig = true;
     char response = '\0';
 
-    while(isRunnig){
-        printf("You are playing a game\n");
-        printf("Would you like to continue? (Y = yes, N= no); ");
-        scanf(" %c", &response);
+    while (isRunnig) {
+        puts("You are playing a game.");
+        puts("would you like to conitue? (Y = yes, N = No)");
+        fscanf(stdin, "%c", & response);
 
-        if (response != 'Y' && response != 'y'){
+        if (response != 'Y' && response != 'y') {
             isRunnig = false;
         }
+        else{
+            do_while_loop(&number);
+        }
     }
+    puts("You exit the game");
+}
 
-    printf("You exit the game\n");
-    
-    return 0;
+int main(int argc, char **agrv){
+    print_name();
+
+    game();
+
+    return EXIT_SUCCESS;
 }
